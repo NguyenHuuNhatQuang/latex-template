@@ -1,0 +1,84 @@
+\documentclass[11pt,a4paper,oneside]{article}
+
+\usepackage[T5,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,vietnamese]{babel}
+\usepackage{olymp}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{import}
+\usepackage{etoolbox}
+\usepackage{epigraph}
+\usepackage{wrapfig}
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{tabularx}
+\newcounter{contestproblemcount}
+
+\usepackage[table]{xcolor}
+
+\newcommand{\importproblem}[1]{
+    \ifstrequal{#1}{Overview}{}{\stepcounter{contestproblemcount}}
+    \IfFileExists{../Problem/#1/body.tex}{
+        \subimport{../Problem/#1/}{body.tex}
+    }{
+        \subimport{../Problem/#1/}{statement.tex}
+    }
+}
+
+\makeatletter
+\AtEndDocument{
+    \immediate\write\@auxout{\string\gdef\string\TotalProblemCount{\arabic{contestproblemcount}}}
+}
+\makeatother
+
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
+\usepackage{eso-pic}
+
+\newcommand{\SQRTwatermark}{
+    \AtPageCenter{
+        \put(\LenToUnit{\dimexpr-\hoffset\relax},\LenToUnit{\voffset}){
+            \makebox(0,0)[cc]{
+                \begin{tikzpicture}
+                    \node[
+                        anchor=center,
+                        inner sep=0pt,
+                        outer sep=0pt,
+                        opacity=0.065
+                    ] {\includegraphics[width=0.42\paperwidth]{sqrt.png}};
+                \end{tikzpicture}
+            }
+        }
+    }
+}
+
+\usepackage{lastpage}
+
+\makeatletter
+
+\def\ps@sqrt{
+    \def\@oddhead{}
+    \def\@evenhead{}
+    \def\@oddfoot{\hfil Trang \thepage/\pageref{LastPage}}
+    \let\@evenfoot\@oddfoot
+}
+
+\makeatother
+
+\setlength{\headheight}{32pt}
+\setlength{\headsep}{30pt}
+
+\begin{document}
+\raggedbottom
+
+\AddToShipoutPictureBG{\SQRTwatermark}
+
+\pagestyle{sqrt}
+\input{Overview/body.tex}
+
+\importproblem{Template}
+
+\end{document}
