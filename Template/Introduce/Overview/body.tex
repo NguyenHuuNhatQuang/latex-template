@@ -1,0 +1,72 @@
+\providecommand{\TotalProblemCount}{0}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\noindent
+\begin{minipage}[t][2.25cm][t]{0.36\textwidth}
+    \centering
+    \textbf{...}\par
+    %\vspace{1pt}
+    \rule{\linewidth}{0.4pt}\par
+
+    \vspace{8pt}
+
+    {
+        \setlength{\fboxrule}{0.35pt}
+        \setlength{\fboxsep}{2.5pt}
+            \parbox[c][0.82cm][c]{0.94\linewidth}{%
+                \centering
+                {
+                    \setlength{\fboxrule}{0.35pt}
+                    \setlength{\fboxsep}{6pt}
+                    \fbox{%
+                        \rule{0pt}{0.34cm}\textbf{ĐỀ GÕ LẠI}%
+                    }%
+                }
+            }%
+    }
+\end{minipage}
+\hfill
+\begin{minipage}[t][2.25cm][t]{0.60\textwidth}
+    \centering
+    \textbf{...}\par
+    %\vspace{1pt}
+    \rule{\linewidth}{0.4pt}\par
+
+    \vspace{4pt}
+    ...
+
+    Đề thi gồm \textbf{\TotalProblemCount} bài toán, \textbf{\pageref{LastPage}} trang\par
+\end{minipage}
+
+\vspace{0.6cm}
+
+\begin{center}
+\fontsize{14}{22} \textbf{TỔNG QUAN ĐỀ THI}
+\end{center}
+\begin{center}
+\setlength{\fboxsep}{6pt}
+\setlength{\fboxrule}{0.4pt}
+\fcolorbox{black!30}{black!1}{%
+\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+
+\noindent\begin{tabularx}{\textwidth}{|c|Y|c|c|c|c|c|c|}
+    \hline
+    \textbf{Bài} & \textbf{Tên bài} & \textbf{Mã nguồn} & \textbf{Dữ liệu} & \textbf{Kết quả} & \textbf{Thời gian} & \textbf{Bộ nhớ} & \textbf{Điểm} \\
+    \hline
+    \textbf{...} & ... & \texttt{<mã nguồn>} & \texttt{<input>} & \texttt{<output>} & \texttt{... giây} & \texttt{... MB} & \\
+    \hline
+\end{tabularx}
+
+% Bỏ các cột thời gian và bộ nhớ nếu trong đề bài không đề cập
+% Thay <input> và <output> bằng stdin và stdout nếu đề bài yêu cầu đọc ghi từ luồng chuẩn
+
+\end{minipage}%
+}
+
+\textbf{Chú ý:} Phần mở rộng \texttt{*} là \texttt{PAS, CPP} hoặc \texttt{PY} tùy theo ngôn ngữ lập trình Pascal, C++ hay Python.
+
+% Xóa Pascal/PAS nếu đề không có ngôn ngữ này
+
+\end{center}
+
+\clearpage
